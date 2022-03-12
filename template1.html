@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="bootstrap.min.css">
+	<title>Arabic Number</title>
+</head>
+<body>
+
+<div class=" col-4">
+	<div>
+    <label for="exampleInputEmail1">Arabic Number:</label>
+		<input type="text" class="textfield" value="1" id="number" name="number" onkeypress="return isNumber(event)" />
+  </div>
+  <button class="btn btn-primary" onclick="toNum()">
+  Submit</button>
+</div>
+
+
+<script>
+
+
+
+function toNum() {
+
+//constans
+	var th = ['','thousand','million', 'milliard','billion'];
+
+	var dg = ['zero','one','two','three','four',
+	'five','six','seven','eight','nine'];
+
+	var tn = ['ten','eleven','twelve','thirteen','fourteen','fifteen','sixteen',
+	'seventeen','eighteen','nineteen'];
+
+	var tw = ['twenty','thirty','forty','fifty','sixty','seventy','eighty','ninety'];
+
+//the number
+	var num = document.getElementById("number").value;
+	if(num==""){
+		num=0;
+	}
+
+
+	alert(num);
+}
+
+
+//veryfication
+function isNumber(evt) {
+    evt = (evt) ? evt : window.event;
+    var charCode = (evt.which) ? evt.which : evt.keyCode;
+    if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+        return false;
+    }
+    return true;
+}
+</script>
+
+</body>
+</html>
