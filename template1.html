@@ -10,8 +10,8 @@
 
 <div class=" col-4">
 	<div>
-    <label for="exampleInputEmail1">Arabic Number:</label>
-		<input type="text" class="textfield" value="0" id="number" name="number" onkeypress="return isNumber(event)" />
+    <label for="number">Arabic Number:</label>
+		<input type="text" class="textfield" value="659812345678901234567890123456789" id="number" name="number" onkeypress="return isNumber(event)" />
   </div>
   <button class="btn btn-primary" onclick="toNum()">
   Submit</button>
@@ -24,7 +24,7 @@ function toNum() {
 
 //constans
 	const pv = ['',
-		'thousand'
+		'thousand',
 		'million',
 		'milliard',
 		'billion',
@@ -47,6 +47,28 @@ function toNum() {
 	let num = BigInt(document.getElementById("number").value);
 	console.log(num);
 
+//Length of the number
+	let length = String(num).length-1;
+	if(length>32){
+		//Too long
+		alert("Can't work bigger than nonilion!");
+		return;
+	}
+
+//number in String format
+	let instring = "";
+
+//over hundreds
+	for (let i = length; i >= 0; i--) {
+		//console.log(length-i);
+		if(i%3==0) {
+			instring += sn[String(num)[length - i]] + " " + pv[i/3] + " ";
+		}else{
+			instring += sn[String(num)[length - i]] + " ";
+		}
+	}
+
+	alert(instring);
 
 }
 
