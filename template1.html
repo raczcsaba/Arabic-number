@@ -11,7 +11,7 @@
 <div class=" col-4">
 	<div>
     <label for="exampleInputEmail1">Arabic Number:</label>
-		<input type="text" class="textfield" value="1" id="number" name="number" onkeypress="return isNumber(event)" />
+		<input type="text" class="textfield" value="0" id="number" name="number" onkeypress="return isNumber(event)" />
   </div>
   <button class="btn btn-primary" onclick="toNum()">
   Submit</button>
@@ -20,29 +20,34 @@
 
 <script>
 
-
-
 function toNum() {
 
 //constans
-	var th = ['','thousand','million', 'milliard','billion'];
+	const pv = ['',
+		'thousand'
+		'million',
+		'milliard',
+		'billion',
+		'quadrillion',
+		'quintillion',
+		'sextillion',
+		'septillion',
+		'octillion',
+		'nonillion'];
 
-	var dg = ['zero','one','two','three','four',
+	const sn = ['zero','one','two','three','four',
 	'five','six','seven','eight','nine'];
 
-	var tn = ['ten','eleven','twelve','thirteen','fourteen','fifteen','sixteen',
+	const ot = ['ten','eleven','twelve','thirteen','fourteen','fifteen','sixteen',
 	'seventeen','eighteen','nineteen'];
 
-	var tw = ['twenty','thirty','forty','fifty','sixty','seventy','eighty','ninety'];
+	const tv = ['twenty','thirty','forty','fifty','sixty','seventy','eighty','ninety'];
 
 //the number
-	var num = document.getElementById("number").value;
-	if(num==""){
-		num=0;
-	}
+	let num = BigInt(document.getElementById("number").value);
+	console.log(num);
 
 
-	alert(num);
 }
 
 
